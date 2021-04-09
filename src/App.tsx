@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useContext, useEffect } from 'react'
+import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
 import { Platform, ConfigContext } from '@meowwolf/react-platform-connection'
+import ForceGraph from '3d-force-graph'
 
 const App: FunctionComponent = () => {
   // if (
@@ -12,6 +13,20 @@ const App: FunctionComponent = () => {
   // )
   //   return null
   console.log(process.env)
+
+  // Might need a useeffect or layout hook
+  const graphParent = useRef<HTMLDivElement>(null)
+  let Graph
+
+  useEffect(() => {
+    if (graphParent.current !== null) {
+      Graph = ForceGraph()(graphParent.current)
+    }
+    // return () => {
+    //   cleanup
+    // }
+  }, [graphParent.current])
+
   return (
     // <Platform
     //   messageBusPort={parseInt(process.env.REACT_APP_MESSAGE_BUS_PORT)}
@@ -22,7 +37,9 @@ const App: FunctionComponent = () => {
     // >
     //   <Tester />
     // </Platform>
-    <div>sup, bud?</div>
+    <div id="3d-graph" ref={graphParent}>
+      sup, bud?
+    </div>
   )
 }
 

@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "3d-force-graph": "^1.69.2",
     "@meowwolf/react-platform-connection": "6.10.1",
     "@types/jest": "26.0.20",
     "@types/node": "14.14.31",
