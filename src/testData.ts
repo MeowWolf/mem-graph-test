@@ -3,32 +3,78 @@ export default {
     // One
     {
       id: 'Hero 01 A',
-      //memory: 'memory01',
       name: 'Hero 01 A',
       color: '#2BACE2 ',
       visible: true,
       image: 'images/mem_hero_01a.png',
     },
     {
+      id: 'Hero 01 AA',
+      name: 'Hero 01 AA',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/mem_hero_01a.png',
+    },
+    {
+      id: 'Hero 01 AAA',
+      name: 'Hero 01 AAA',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/mem_hero_01a.png',
+    },
+    {
       id: 'Hero 01 B',
-      //memory: 'memory01',
       name: 'Hero 01 B',
       color: '#2BACE2 ',
       visible: true,
       image: 'images/mem_hero_01b.png',
     },
     {
+      id: 'Hero 01 BB',
+      name: 'Hero 01 BB',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/mem_hero_01b.png',
+    },
+    {
+      id: 'Hero 01 BBB',
+      name: 'Hero 01 BBB',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/mem_hero_01b.png',
+    },
+    {
       id: 'Hero 01 C',
-      //memory: 'memory01',
+
       name: 'Hero 01 C',
       color: '#2BACE2 ',
       visible: true,
       image: 'images/mem_hero_01c.png',
     },
+    {
+      id: 'Hero 01 CC',
+      name: 'Hero 01 CC',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/mem_hero_01c.png',
+    },
+    {
+      id: 'Hero 01 Empty',
+      name: 'Hero 01 Empty',
+      color: '#2BACE2 ',
+      visible: false,
+      image: 'images/mem_hero_01c.png',
+    },
     // Two
     {
+      id: 'Hero 02 Empty',
+      name: 'Hero 02 Empty',
+      color: '#45B763 ',
+      visible: false,
+      image: 'images/mem_hero_02a.png',
+    },
+    {
       id: 'Hero 02 A',
-      //memory: 'memory01',
       name: 'Hero 02 A',
       color: '#45B763 ',
       visible: true,
@@ -36,7 +82,6 @@ export default {
     },
     {
       id: 'Hero 02 B',
-      //memory: 'memory01',
       name: 'Hero 02 B',
       color: '#45B763 ',
       visible: true,
@@ -44,7 +89,48 @@ export default {
     },
     {
       id: 'Hero 02 C',
-      //memory: 'memory01',
+      name: 'Hero 02 C',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02c.png',
+    },
+    {
+      id: 'Hero 02 AA',
+      name: 'Hero 02 A',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02a.png',
+    },
+    {
+      id: 'Hero 02 BB',
+      name: 'Hero 02 B',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02b.png',
+    },
+    {
+      id: 'Hero 02 CC',
+      name: 'Hero 02 C',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02c.png',
+    },
+    {
+      id: 'Hero 02 AAA',
+      name: 'Hero 02 A',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02a.png',
+    },
+    {
+      id: 'Hero 02 BBB',
+      name: 'Hero 02 B',
+      color: '#45B763 ',
+      visible: true,
+      image: 'images/mem_hero_02b.png',
+    },
+    {
+      id: 'Hero 02 CCC',
       name: 'Hero 02 C',
       color: '#45B763 ',
       visible: true,
@@ -53,7 +139,7 @@ export default {
     // Three
     {
       id: 'Hero 03 A',
-      //memory: 'memory01',
+
       name: 'Hero 03 A',
       color: '#7989FF ',
       visible: true,
@@ -61,7 +147,7 @@ export default {
     },
     {
       id: 'Hero 03 B',
-      //memory: 'memory01',
+
       name: 'Hero 03 B',
       color: '#7989FF ',
       visible: true,
@@ -69,7 +155,7 @@ export default {
     },
     {
       id: 'Hero 03 C',
-      //memory: 'memory01',
+
       name: 'Hero 03 C',
       color: '#7989FF ',
       visible: true,
@@ -78,7 +164,7 @@ export default {
     // Four
     {
       id: 'Hero 04 A',
-      //memory: 'memory01',
+
       name: 'Hero 04 A',
       color: '#EA797E ',
       visible: true,
@@ -86,7 +172,7 @@ export default {
     },
     {
       id: 'Hero 04 B',
-      //memory: 'memory01',
+
       name: 'Hero 04 B',
       color: '#EA797E ',
       visible: true,
@@ -94,7 +180,7 @@ export default {
     },
     {
       id: 'Hero 04 C',
-      //memory: 'memory01',
+
       name: 'Hero 04 C',
       color: '#EA797E ',
       visible: true,
@@ -103,7 +189,7 @@ export default {
     // Five
     {
       id: 'Hero 05 A',
-      //memory: 'memory01',
+
       name: 'Hero 05 A',
       color: '#FAC915 ',
       visible: true,
@@ -111,7 +197,7 @@ export default {
     },
     {
       id: 'Hero 05 B',
-      //memory: 'memory01',
+
       name: 'Hero 05 B',
       color: '#FAC915',
       visible: true,
@@ -119,7 +205,7 @@ export default {
     },
     {
       id: 'Hero 05 C',
-      //memory: 'memory01',
+
       name: 'Hero 05 C',
       color: '#FAC915 ',
       visible: true,
@@ -135,6 +221,7 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -144,6 +231,7 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -153,6 +241,7 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -162,6 +251,7 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -171,7 +261,78 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 01 AA',
+      target: 'Hero 01 BB',
+      //length
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.5,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 01 AA',
+      target: 'Hero 01 BB',
+      //length
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 1,
+      visible: true,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 01 Empty',
+      target: 'Hero 01 BB',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 01 Empty',
+      target: 'Hero 01 CC',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 01 Empty',
+      target: 'Hero 01 A',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 01 Empty',
+      target: 'Hero 01 AAA',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 01 Empty',
+      target: 'Hero 01 BBB',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
     },
     {
       source: 'Hero 01 B',
@@ -180,6 +341,7 @@ export default {
       value: 1,
       color: '#2BACE2 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -189,16 +351,100 @@ export default {
       value: 1,
       color: '#45B763 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
       source: 'Hero 02 A',
       target: 'Hero 02 C',
-      //length
       value: 1,
       color: '#45B763 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 A',
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 BBB',
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 CCC',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 AA',
+      visible: false,
+      value: 1,
+      color: '#45B763 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 BB',
+      visible: false,
+      value: 1,
+      color: '#45B763 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 AA',
+      target: 'Hero 02 BB',
+      visible: true,
+      value: 1,
+      color: '#45B763 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 AA',
+      target: 'Hero 02 BB',
+      visible: true,
+      value: 1,
+      color: '#45B763 ',
+      curve: 0.3,
+      rotation: Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 CC',
+      visible: false,
+      value: 1,
+      color: '#45B763 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 02 Empty',
+      target: 'Hero 02 AAA',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
     },
     {
       source: 'Hero 02 B',
@@ -207,6 +453,7 @@ export default {
       value: 1,
       color: '#45B763 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -225,6 +472,7 @@ export default {
       value: 1,
       color: '#7989FF ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -234,6 +482,7 @@ export default {
       value: 1,
       color: '#7989FF ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -243,6 +492,7 @@ export default {
       value: 1,
       color: '#EA797E ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -252,6 +502,7 @@ export default {
       value: 1,
       color: '#EA797E ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -261,6 +512,7 @@ export default {
       value: 1,
       color: '#EA797E ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -270,6 +522,7 @@ export default {
       value: 1,
       color: '#FAC915 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -279,6 +532,7 @@ export default {
       value: 1,
       color: '#FAC915 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
@@ -288,6 +542,7 @@ export default {
       value: 1,
       color: '#FAC915 ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
   ],

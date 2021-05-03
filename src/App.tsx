@@ -91,6 +91,7 @@ const App: FunctionComponent = () => {
         .linkOpacity(0.7)
         .linkCurveRotation('rotation')
         .nodeVisibility('visible')
+        .linkVisibility('visible')
         .nodeColor('color')
         .nodeThreeObject((node: any) => {
           const imgTexture = new THREE.TextureLoader().load(node.image)
