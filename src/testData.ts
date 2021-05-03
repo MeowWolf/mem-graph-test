@@ -138,8 +138,14 @@ export default {
     },
     // Three
     {
+      id: 'Hero 03 Empty',
+      name: 'Hero 03 Empty',
+      color: '#7989FF ',
+      visible: false,
+      image: 'images/mem_hero_03a.png',
+    },
+    {
       id: 'Hero 03 A',
-
       name: 'Hero 03 A',
       color: '#7989FF ',
       visible: true,
@@ -147,7 +153,6 @@ export default {
     },
     {
       id: 'Hero 03 B',
-
       name: 'Hero 03 B',
       color: '#7989FF ',
       visible: true,
@@ -155,7 +160,41 @@ export default {
     },
     {
       id: 'Hero 03 C',
-
+      name: 'Hero 03 C',
+      color: '#7989FF ',
+      visible: true,
+      image: 'images/mem_hero_03c.png',
+    },
+    {
+      id: 'Hero 03 AA',
+      name: 'Hero 03 A',
+      color: '#7989FF ',
+      visible: true,
+      image: 'images/mem_hero_03a.png',
+    },
+    {
+      id: 'Hero 03 BB',
+      name: 'Hero 03 B',
+      color: '#7989FF ',
+      visible: true,
+      image: 'images/mem_hero_03b.png',
+    },
+    {
+      id: 'Hero 03 CC',
+      name: 'Hero 03 C',
+      color: '#7989FF ',
+      visible: true,
+      image: 'images/mem_hero_03c.png',
+    },
+    {
+      id: 'Hero 03 BBB',
+      name: 'Hero 03 B',
+      color: '#7989FF ',
+      visible: true,
+      image: 'images/mem_hero_03b.png',
+    },
+    {
+      id: 'Hero 03 CCC',
       name: 'Hero 03 C',
       color: '#7989FF ',
       visible: true,
@@ -163,8 +202,14 @@ export default {
     },
     // Four
     {
+      id: 'Hero 04 Empty',
+      name: 'Hero 04 Empty',
+      color: '#EA797E ',
+      visible: false,
+      image: 'images/mem_hero_04a.png',
+    },
+    {
       id: 'Hero 04 A',
-
       name: 'Hero 04 A',
       color: '#EA797E ',
       visible: true,
@@ -172,7 +217,6 @@ export default {
     },
     {
       id: 'Hero 04 B',
-
       name: 'Hero 04 B',
       color: '#EA797E ',
       visible: true,
@@ -180,7 +224,48 @@ export default {
     },
     {
       id: 'Hero 04 C',
-
+      name: 'Hero 04 C',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04c.png',
+    },
+    {
+      id: 'Hero 04 AA',
+      name: 'Hero 04 A',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04a.png',
+    },
+    {
+      id: 'Hero 04 BB',
+      name: 'Hero 04 B',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04b.png',
+    },
+    {
+      id: 'Hero 04 CC',
+      name: 'Hero 04 C',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04c.png',
+    },
+    {
+      id: 'Hero 04 AAA',
+      name: 'Hero 04 A',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04a.png',
+    },
+    {
+      id: 'Hero 04 BBB',
+      name: 'Hero 04 B',
+      color: '#EA797E ',
+      visible: true,
+      image: 'images/mem_hero_04b.png',
+    },
+    {
+      id: 'Hero 04 CCC',
       name: 'Hero 04 C',
       color: '#EA797E ',
       visible: true,
@@ -459,16 +544,15 @@ export default {
     {
       source: 'Hero 03 A',
       target: 'Hero 03 B',
-      //length
       value: 1,
       color: '#7989FF ',
       curve: 0,
+      visible: true,
       rotation: -Math.PI * (10 / 6),
     },
     {
       source: 'Hero 03 A',
       target: 'Hero 03 C',
-      //length
       value: 1,
       color: '#7989FF ',
       curve: 0,
@@ -478,7 +562,6 @@ export default {
     {
       source: 'Hero 03 B',
       target: 'Hero 03 C',
-      //length
       value: 1,
       color: '#7989FF ',
       curve: 0,
@@ -486,9 +569,72 @@ export default {
       rotation: -Math.PI * (10 / 6),
     },
     {
+      source: 'Hero 03 AA',
+      target: 'Hero 03 CC',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0.5,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 03 CC',
+      target: 'Hero 03 AA',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0.7,
+      visible: true,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 03 Empty',
+      target: 'Hero 03 A',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0.6,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+
+    {
+      source: 'Hero 03 Empty',
+      target: 'Hero 03 AA',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 03 Empty',
+      target: 'Hero 03 BB',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 03 Empty',
+      target: 'Hero 03 BBB',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 03 Empty',
+      target: 'Hero 03 CCC',
+      value: 1,
+      color: '#7989FF ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
       source: 'Hero 04 A',
       target: 'Hero 04 B',
-      //length
       value: 1,
       color: '#EA797E ',
       curve: 0,
@@ -498,7 +644,6 @@ export default {
     {
       source: 'Hero 04 A',
       target: 'Hero 04 C',
-      //length
       value: 1,
       color: '#EA797E ',
       curve: 0,
@@ -508,11 +653,82 @@ export default {
     {
       source: 'Hero 04 B',
       target: 'Hero 04 C',
-      //length
       value: 1,
       color: '#EA797E ',
       curve: 0,
       visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 AA',
+      target: 'Hero 04 BB',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0.7,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 AA',
+      target: 'Hero 04 BB',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0.6,
+      visible: true,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 A',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 AA',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 CC',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 AAA',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 BBB',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Empty',
+      target: 'Hero 04 CCC',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: false,
       rotation: -Math.PI * (10 / 6),
     },
     {
