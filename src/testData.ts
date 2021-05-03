@@ -273,8 +273,14 @@ export default {
     },
     // Five
     {
+      id: 'Hero 05 Empty',
+      name: 'Hero 05 Empty',
+      color: '#FAC915 ',
+      visible: true,
+      image: 'images/mem_hero_05a.png',
+    },
+    {
       id: 'Hero 05 A',
-
       name: 'Hero 05 A',
       color: '#FAC915 ',
       visible: true,
@@ -282,7 +288,6 @@ export default {
     },
     {
       id: 'Hero 05 B',
-
       name: 'Hero 05 B',
       color: '#FAC915',
       visible: true,
@@ -290,8 +295,28 @@ export default {
     },
     {
       id: 'Hero 05 C',
-
       name: 'Hero 05 C',
+      color: '#FAC915 ',
+      visible: true,
+      image: 'images/mem_hero_05c.png',
+    },
+    {
+      id: 'Hero 05 AA',
+      name: 'Hero 05 AA',
+      color: '#FAC915 ',
+      visible: true,
+      image: 'images/mem_hero_05a.png',
+    },
+    {
+      id: 'Hero 05 BB',
+      name: 'Hero 05 BB',
+      color: '#FAC915',
+      visible: true,
+      image: 'images/mem_hero_05b.png',
+    },
+    {
+      id: 'Hero 05 CC',
+      name: 'Hero 05 CC',
       color: '#FAC915 ',
       visible: true,
       image: 'images/mem_hero_05c.png',
@@ -734,7 +759,6 @@ export default {
     {
       source: 'Hero 05 A',
       target: 'Hero 05 B',
-      //length
       value: 1,
       color: '#FAC915 ',
       curve: 0,
@@ -744,7 +768,6 @@ export default {
     {
       source: 'Hero 05 A',
       target: 'Hero 05 C',
-      //length
       value: 1,
       color: '#FAC915 ',
       curve: 0,
@@ -754,12 +777,65 @@ export default {
     {
       source: 'Hero 05 B',
       target: 'Hero 05 C',
-      //length
       value: 1,
       color: '#FAC915 ',
       curve: 0,
       visible: true,
       rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 Empty',
+      target: 'Hero 05 AA',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.3,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 Empty',
+      target: 'Hero 05 A',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.3,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 Empty',
+      target: 'Hero 05 BB',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.3,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 Empty',
+      target: 'Hero 05 CC',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.3,
+      visible: false,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 AA',
+      target: 'Hero 05 CC',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.3,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 05 AA',
+      target: 'Hero 05 CC',
+      value: 1,
+      color: '#FAC915 ',
+      curve: 0.6,
+      visible: true,
+      rotation: -Math.PI * (2 / 6),
     },
   ],
 }
