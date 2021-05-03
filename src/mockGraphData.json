@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "a",
+      "memory": "memory01",
+      "name": "a",
+      "color": "blue"
+    },
+    {
+      "id": "b",
+      "memory": "memory01",
+      "name": "b",
+      "color": "blue"
+    },
+    {
+      "id": "c",
+      "memory": "memory01",
+      "name": "c",
+      "color": "blue"
+    },
+    {
+      "id": "a2",
+      "memory": "memory02",
+      "name": "a",
+      "color": "green"
+    },
+    {
+      "id": "b2",
+      "memory": "memory02",
+      "name": "b",
+      "color": "green"
+    },
+    {
+      "id": "c2",
+      "memory": "memory02",
+      "name": "c",
+      "color": "green"
+    }
+  ],
+  "links": [
+    {
+      "source": "a",
+      "target": "b",
+      "value": 1
+    },
+    {
+      "source": "b",
+      "target": "c",
+      "value": 1
+    },
+    {
+      "source": "c",
+      "target": "b",
+      "value": 1
+    },
+    {
+      "source": "c",
+      "target": "a",
+      "value": 1
+    }
+  ]
+}
