@@ -4,6 +4,7 @@ import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
 import * as THREE from 'three'
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 
 const HERO_MEM = {
   id: 'mem_hero_01a.png',
@@ -109,6 +110,14 @@ const App: FunctionComponent = () => {
 
         return 75
       })
+
+      // post
+      // @ts-expect-error // shhh
+      const bloomPass = new UnrealBloomPass()
+      bloomPass.strength = 0.65
+      bloomPass.radius = 2
+      bloomPass.threshold = 0.1
+      graph.postProcessingComposer().addPass(bloomPass)
     }
   }, [graphParent.current])
 
