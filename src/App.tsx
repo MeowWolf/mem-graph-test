@@ -75,7 +75,8 @@ const App: FunctionComponent = () => {
 
   // Might need a useeffect or layout hook
   const graphParent = useRef<HTMLDivElement>(null)
-  let graph
+  // @ts-expect-error // shhh
+  let Graph
   let linkForce
 
   console.log()
@@ -84,7 +85,7 @@ const App: FunctionComponent = () => {
     if (graphParent.current !== null) {
       // build the graph
       //
-      graph = ForceGraph()(graphParent.current)
+      Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
         .linkColor('color')
         .linkWidth(1)
@@ -94,6 +95,19 @@ const App: FunctionComponent = () => {
         .nodeVisibility('visible')
         .linkVisibility('visible')
         .nodeColor('color')
+        .cooldownTicks(100)
+        .onNodeClick((node: any) => {
+          // Aim at node from outside it
+          const distance = 70
+          const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z)
+
+          // @ts-expect-error - dont wrry bout it bb
+          Graph.cameraPosition(
+            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+            node, // lookAt ({ x, y, z })
+            3000, // ms transition duration
+          )
+        })
         .nodeThreeObject((node: any) => {
           const imgTexture = new THREE.TextureLoader().load(node.image)
           const material = new THREE.SpriteMaterial({ map: imgTexture })
@@ -102,7 +116,7 @@ const App: FunctionComponent = () => {
           return sprite
         })
 
-      linkForce = graph.d3Force('link')
+      linkForce = Graph.d3Force('link')
 
       // @ts-expect-error // This matches the docs. its fine.
       linkForce?.distance((link: any) => {
@@ -114,10 +128,13 @@ const App: FunctionComponent = () => {
       // post
       // @ts-expect-error // shhh
       const bloomPass = new UnrealBloomPass()
-      bloomPass.strength = 0.65
+      bloomPass.strength = 0.5
       bloomPass.radius = 2
       bloomPass.threshold = 0.1
-      graph.postProcessingComposer().addPass(bloomPass)
+      Graph.postProcessingComposer().addPass(bloomPass)
+
+      //// @ts-expect-error // shhh
+      // Graph.onEngineStop(() => Graph.zoomToFit(400, 1))
     }
   }, [graphParent.current])
 
