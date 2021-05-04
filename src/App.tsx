@@ -119,8 +119,8 @@ const App: FunctionComponent = () => {
       // post
       // @ts-expect-error // shhh
       const bloomPass = new UnrealBloomPass()
-      bloomPass.strength = 0.5
-      bloomPass.radius = 2
+      bloomPass.strength = 0.3
+      bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
       Graph.postProcessingComposer().addPass(bloomPass)
     }
