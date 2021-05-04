@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
-import { Platform, ConfigContext } from '@meowwolf/react-platform-connection'
+//import { Platform, ConfigContext } from '@meowwolf/react-platform-connection'
 import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
@@ -155,12 +155,12 @@ const App: FunctionComponent = () => {
   )
 }
 
-const Tester: FunctionComponent = () => {
-  const config = useContext(ConfigContext)
-  useEffect(() => {
-    console.log(config)
-  }, [config])
-  return <p>Loaded Config. Things seem good to go.</p>
-}
+// const Tester: FunctionComponent = () => {
+//   const config = useContext(ConfigContext)
+//   useEffect(() => {
+//     console.log(config)
+//   }, [config])
+//   return <p>Loaded Config. Things seem good to go.</p>
+// }
 
 export default App
