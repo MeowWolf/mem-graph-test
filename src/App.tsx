@@ -116,15 +116,6 @@ const App: FunctionComponent = () => {
           return sprite
         })
 
-      linkForce = Graph.d3Force('link')
-
-      // @ts-expect-error // This matches the docs. its fine.
-      linkForce?.distance((link: any) => {
-        // hi
-
-        return 75
-      })
-
       // post
       // @ts-expect-error // shhh
       const bloomPass = new UnrealBloomPass()
@@ -132,9 +123,6 @@ const App: FunctionComponent = () => {
       bloomPass.radius = 2
       bloomPass.threshold = 0.1
       Graph.postProcessingComposer().addPass(bloomPass)
-
-      //// @ts-expect-error // shhh
-      // Graph.onEngineStop(() => Graph.zoomToFit(400, 1))
     }
   }, [graphParent.current])
 
