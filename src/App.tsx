@@ -99,10 +99,10 @@ const App: FunctionComponent = () => {
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
         .width(width * 0.8)
-
         .backgroundColor('#201C2D')
         .linkColor('color')
         .linkWidth(1)
+        .linkResolution(8)
         .linkCurvature('curve')
         .linkOpacity(0.7)
         .linkCurveRotation('rotation')
@@ -133,7 +133,7 @@ const App: FunctionComponent = () => {
       // post
       // @ts-expect-error // shhh
       const bloomPass = new UnrealBloomPass()
-      bloomPass.strength = 0.3
+      bloomPass.strength = 0.35
       bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
       Graph.postProcessingComposer().addPass(bloomPass)
