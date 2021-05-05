@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
-.test {
-  z-index: 100;
+
+.container {
+  display: flex;
+}
+
+.rail {
+  width: 10%;
+  
+  background-color: #201C2D;
 }

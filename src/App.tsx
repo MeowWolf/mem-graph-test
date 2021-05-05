@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
 //import { Platform, ConfigContext } from '@meowwolf/react-platform-connection'
+import { useWindowSize } from 'react-use'
 import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
@@ -79,7 +80,17 @@ const App: FunctionComponent = () => {
   let Graph
   let linkForce
 
-  console.log()
+  let first = true
+
+  const { width, height } = useWindowSize()
+
+  function handleReset() {
+    // @ts-expect-error // shhh
+    if (Graph) {
+      // @ts-expect-error // shhh
+      Graph.zoomToFit(200, 0)
+    }
+  }
 
   useEffect(() => {
     if (graphParent.current !== null) {
@@ -87,6 +98,9 @@ const App: FunctionComponent = () => {
       //
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
+        .width(width * 0.8)
+
+        .backgroundColor('#201C2D')
         .linkColor('color')
         .linkWidth(1)
         .linkCurvature('curve')
@@ -105,7 +119,7 @@ const App: FunctionComponent = () => {
           Graph.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
             node, // lookAt ({ x, y, z })
-            3000, // ms transition duration
+            2000, // ms transition duration
           )
         })
         .nodeThreeObject((node: any) => {
@@ -123,6 +137,15 @@ const App: FunctionComponent = () => {
       bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
       Graph.postProcessingComposer().addPass(bloomPass)
+
+      Graph.onEngineStop(() => {
+        if (first) {
+          // @ts-expect-error // shhh
+          Graph.zoomToFit(300, 0)
+          first = false
+          return
+        }
+      })
     }
   }, [graphParent.current])
 
@@ -136,10 +159,13 @@ const App: FunctionComponent = () => {
     // >
     //   <Tester />
     // </Platform>
-    <>
-      <div id="3d-graph" className="test" ref={graphParent}></div>
-      <div className="test">sup, bud?</div>
-    </>
+    <div className="container">
+      <div className="rail"></div>
+      <div id="3d-graph" className="graph" ref={graphParent}></div>
+      <div className="rail">
+        <button onClick={() => handleReset()}>RESET</button>
+      </div>
+    </div>
   )
 }
 
