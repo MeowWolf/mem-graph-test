@@ -79,6 +79,7 @@ const App: FunctionComponent = () => {
   // @ts-expect-error // shhh
   let Graph
   let linkForce
+  let graphControls
 
   let first = true
 
@@ -96,7 +97,7 @@ const App: FunctionComponent = () => {
     if (graphParent.current !== null) {
       // build the graph
       //
-      Graph = ForceGraph()(graphParent.current)
+      Graph = ForceGraph({ controlType: 'orbit' })(graphParent.current)
         .graphData(testData)
         .width(width * 0.8)
         .backgroundColor('#201C2D')
@@ -146,6 +147,10 @@ const App: FunctionComponent = () => {
           return
         }
       })
+
+      graphControls = Graph.controls()
+      // @ts-expect-error // shhh
+      graphControls.maxDistance = 1000
     }
   }, [graphParent.current])
 
