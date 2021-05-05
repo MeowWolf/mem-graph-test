@@ -97,13 +97,13 @@ const App: FunctionComponent = () => {
     if (graphParent.current !== null) {
       // build the graph
       //
-      Graph = ForceGraph({ controlType: 'orbit' })(graphParent.current)
+      Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
         .width(width * 0.8)
         .backgroundColor('#201C2D')
         .linkColor('color')
         .linkWidth(1)
-        .linkResolution(8)
+        .linkResolution(10)
         .linkCurvature('curve')
         .linkOpacity(0.7)
         .linkCurveRotation('rotation')
@@ -151,6 +151,8 @@ const App: FunctionComponent = () => {
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
       graphControls.maxDistance = 1000
+      // @ts-expect-error // shhh
+      graphControls.noPan = true
     }
   }, [graphParent.current])
 
@@ -168,7 +170,12 @@ const App: FunctionComponent = () => {
       <div className="rail"></div>
       <div id="3d-graph" className="graph" ref={graphParent}></div>
       <div className="rail">
-        <button onClick={() => handleReset()}>RESET</button>
+        <button
+          onClick={() => handleReset()}
+          style={{ marginTop: '12rem', padding: '1.5rem', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+        >
+          RESET
+        </button>
       </div>
     </div>
   )
