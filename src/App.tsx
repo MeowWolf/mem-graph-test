@@ -132,12 +132,12 @@ const App: FunctionComponent = () => {
         })
 
       // post
-      // @ts-expect-error // shhh
-      const bloomPass = new UnrealBloomPass()
-      bloomPass.strength = 0.35
-      bloomPass.radius = 1.5
-      bloomPass.threshold = 0.1
-      Graph.postProcessingComposer().addPass(bloomPass)
+      // // @ts-expect-error // shhh
+      // const bloomPass = new UnrealBloomPass()
+      // bloomPass.strength = 0.35
+      // bloomPass.radius = 1.5
+      // bloomPass.threshold = 0.1
+      // Graph.postProcessingComposer().addPass(bloomPass)
 
       Graph.onEngineStop(() => {
         if (first) {
@@ -150,7 +150,7 @@ const App: FunctionComponent = () => {
 
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
-      graphControls.maxDistance = 1000
+      graphControls.maxDistance = 900
       // @ts-expect-error // shhh
       graphControls.noPan = true
     }
