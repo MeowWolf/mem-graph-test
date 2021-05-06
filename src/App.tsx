@@ -148,6 +148,8 @@ const App: FunctionComponent = () => {
         }
       })
 
+      // Graph.renderer().setPixelRatio(window.devicePixelRatio * 2.0)
+
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
       graphControls.maxDistance = 1000
