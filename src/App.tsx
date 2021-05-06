@@ -150,7 +150,7 @@ const App: FunctionComponent = () => {
 
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
-      graphControls.maxDistance = 950
+      graphControls.maxDistance = 800
       // @ts-expect-error // shhh
       graphControls.noPan = true
       // @ts-expect-error // shhh
