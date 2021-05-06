@@ -154,9 +154,9 @@ const App: FunctionComponent = () => {
       // @ts-expect-error // shhh
       graphControls.noPan = true
       // @ts-expect-error // shhh
-      graphControls.rotateSpeed = 0.6
+      graphControls.rotateSpeed = 0.5
       // @ts-expect-error // shhh
-      graphControls.zoomSpeed = 0.7
+      graphControls.zoomSpeed = 0.5
     }
   }, [graphParent.current])
 
