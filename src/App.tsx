@@ -28,7 +28,6 @@ const App: FunctionComponent = () => {
   useEffect(() => {
     if (graphParent.current !== null) {
       // build the graph
-      //
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
         .width(width * 0.8)
