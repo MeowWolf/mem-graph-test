@@ -100,7 +100,7 @@ const App: FunctionComponent = () => {
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
         .width(width * 0.8)
-        .backgroundColor('#201C2D')
+
         .linkColor('color')
         .linkWidth(1)
         .linkResolution(10)

@@ -19,6 +19,6 @@ code {
 
 .rail {
   width: 10%;
-  
-  background-color: #51486C;
+  filter: brightness(50%);
+  background-color: #201C2D;
 }
