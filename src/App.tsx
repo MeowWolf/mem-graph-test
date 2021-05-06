@@ -148,7 +148,7 @@ const App: FunctionComponent = () => {
         }
       })
 
-      // Graph.renderer().setPixelRatio(window.devicePixelRatio * 2.0)
+      Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
