@@ -153,6 +153,8 @@ const App: FunctionComponent = () => {
       graphControls.maxDistance = 900
       // @ts-expect-error // shhh
       graphControls.noPan = true
+      // @ts-expect-error // shhh
+      graphControls.rotateSpeed = 0.6
     }
   }, [graphParent.current])
 
