@@ -1,10 +1,12 @@
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
 import { createBreakpoint, useWindowSize } from 'react-use'
+import * as THREE from 'three'
+import * as d3 from 'd3'
 
 import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
-import * as THREE from 'three'
+
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 
 const useBreakpoint = createBreakpoint()
@@ -45,7 +47,10 @@ const App: FunctionComponent = () => {
         .linkVisibility('visible')
         .nodeColor('color')
         .cooldownTicks(100)
+        //   .d3Force('center', null)
+        // .d3Force('charge', null)
 
+        // Add collision and bounding box forces
         .d3VelocityDecay(0.7)
         .onNodeClick((node: any) => {
           // Aim at node from outside it
@@ -55,7 +60,7 @@ const App: FunctionComponent = () => {
           // @ts-expect-error - dont wrry bout it bb
           Graph.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-            node, // lookAt ({ x, y, z })
+            null, // lookAt ({ x, y, z })
             2000, // ms transition duration
           )
         })
@@ -66,6 +71,9 @@ const App: FunctionComponent = () => {
           sprite.scale.set(20, 20, 1)
           return sprite
         })
+
+      // // @ts-expect-error // shhh
+      // Graph.d3Force('collide', d3.forceCollide(Graph.nodeRelSize()))
 
       // post
       // @ts-expect-error // shhh
