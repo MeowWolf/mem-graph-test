@@ -47,10 +47,6 @@ const App: FunctionComponent = () => {
         .linkVisibility('visible')
         .nodeColor('color')
         .cooldownTicks(100)
-        //   .d3Force('center', null)
-        // .d3Force('charge', null)
-
-        // Add collision and bounding box forces
         .d3VelocityDecay(0.7)
         .onNodeClick((node: any) => {
           // Aim at node from outside it
@@ -71,9 +67,6 @@ const App: FunctionComponent = () => {
           sprite.scale.set(20, 20, 1)
           return sprite
         })
-
-      // // @ts-expect-error // shhh
-      // Graph.d3Force('collide', d3.forceCollide(Graph.nodeRelSize()))
 
       // post
       // @ts-expect-error // shhh
