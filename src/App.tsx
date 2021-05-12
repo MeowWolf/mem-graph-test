@@ -12,6 +12,7 @@ const useBreakpoint = createBreakpoint()
 const App: FunctionComponent = () => {
   const graphParent = useRef<HTMLDivElement>(null)
   const breakpoint = useBreakpoint()
+  console.log(breakpoint)
   // @ts-expect-error // shhh
   let Graph
   let graphControls
@@ -33,7 +34,7 @@ const App: FunctionComponent = () => {
       // build the graph
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
-        .width(breakpoint === 'tablet' || breakpoint === 'laptop' ? width * 0.8 : width)
+        .width(breakpoint.includes('laptop') ? width * 0.8 : width)
         .linkColor('color')
         .linkWidth(1)
         .linkResolution(10)
@@ -97,9 +98,9 @@ const App: FunctionComponent = () => {
 
   return (
     <div className="container">
-      {(breakpoint === 'tablet' || breakpoint === 'laptop') && <div className="rail"></div>}
+      {breakpoint.includes('laptop') && <div className="rail"></div>}
       <div id="3d-graph" className="graph" ref={graphParent}></div>
-      {(breakpoint === 'tablet' || breakpoint === 'laptop') && (
+      {breakpoint.includes('laptop') && (
         <div className="rail">
           <button
             onClick={() => handleReset()}
