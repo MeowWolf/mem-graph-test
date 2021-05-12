@@ -45,6 +45,8 @@ const App: FunctionComponent = () => {
         .linkVisibility('visible')
         .nodeColor('color')
         .cooldownTicks(100)
+
+        .d3VelocityDecay(0.7)
         .onNodeClick((node: any) => {
           // Aim at node from outside it
           const distance = 70
