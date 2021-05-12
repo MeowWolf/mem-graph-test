@@ -1,14 +1,17 @@
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
-//import { Platform, ConfigContext } from '@meowwolf/react-platform-connection'
-import { useWindowSize } from 'react-use'
+import { createBreakpoint, useWindowSize } from 'react-use'
+
 import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
 import * as THREE from 'three'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 
+const useBreakpoint = createBreakpoint()
+
 const App: FunctionComponent = () => {
   const graphParent = useRef<HTMLDivElement>(null)
+  const breakpoint = useBreakpoint()
   // @ts-expect-error // shhh
   let Graph
   let graphControls
@@ -30,7 +33,7 @@ const App: FunctionComponent = () => {
       // build the graph
       Graph = ForceGraph()(graphParent.current)
         .graphData(testData)
-        .width(width * 0.8)
+        .width(breakpoint === 'tablet' || breakpoint === 'laptop' ? width * 0.8 : width)
         .linkColor('color')
         .linkWidth(1)
         .linkResolution(10)
@@ -78,7 +81,7 @@ const App: FunctionComponent = () => {
         }
       })
 
-      Graph.renderer().setPixelRatio(window.devicePixelRatio)
+      // Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
@@ -94,16 +97,18 @@ const App: FunctionComponent = () => {
 
   return (
     <div className="container">
-      <div className="rail"></div>
+      {(breakpoint === 'tablet' || breakpoint === 'laptop') && <div className="rail"></div>}
       <div id="3d-graph" className="graph" ref={graphParent}></div>
-      <div className="rail">
-        <button
-          onClick={() => handleReset()}
-          style={{ marginTop: '12rem', padding: '1.5rem', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
-        >
-          RESET
-        </button>
-      </div>
+      {(breakpoint === 'tablet' || breakpoint === 'laptop') && (
+        <div className="rail">
+          <button
+            onClick={() => handleReset()}
+            style={{ marginTop: '12rem', padding: '1.5rem', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+          >
+            RESET
+          </button>
+        </div>
+      )}
     </div>
   )
 }
