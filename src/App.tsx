@@ -61,7 +61,7 @@ const App: FunctionComponent = () => {
           Graph.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
             null, // lookAt ({ x, y, z })
-            2000, // ms transition duration
+            1500, // ms transition duration
           )
         })
         .nodeThreeObject((node: any) => {
@@ -92,7 +92,7 @@ const App: FunctionComponent = () => {
         }
       })
 
-      // Graph.renderer().setPixelRatio(window.devicePixelRatio)
+      Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
