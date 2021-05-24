@@ -2,7 +2,6 @@ import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
 import { createBreakpoint, useWindowSize } from 'react-use'
 import * as THREE from 'three'
 import * as d3 from 'd3'
-
 import ForceGraph from '3d-force-graph'
 
 import testData from './testData'
@@ -14,7 +13,7 @@ const useBreakpoint = createBreakpoint()
 const App: FunctionComponent = () => {
   const graphParent = useRef<HTMLDivElement>(null)
   const breakpoint = useBreakpoint()
-  console.log(breakpoint)
+
   // @ts-expect-error // shhh
   let Graph
   let graphControls
@@ -47,7 +46,7 @@ const App: FunctionComponent = () => {
         .linkVisibility('visible')
         .nodeColor('color')
         .cooldownTicks(100)
-        .d3VelocityDecay(0.7)
+        .d3VelocityDecay(0.8)
         .onNodeClick((node: any) => {
           // Aim at node from outside it
           const distance = 70
@@ -64,7 +63,13 @@ const App: FunctionComponent = () => {
           const imgTexture = new THREE.TextureLoader().load(node.image)
           const material = new THREE.SpriteMaterial({ map: imgTexture })
           const sprite = new THREE.Sprite(material)
-          sprite.scale.set(20, 20, 1)
+
+          if (node.image.includes('memory')) {
+            sprite.scale.set(100, 100, 1)
+          } else {
+            sprite.scale.set(20, 20, 1)
+          }
+
           return sprite
         })
 

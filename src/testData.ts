@@ -2,6 +2,13 @@ export default {
   nodes: [
     // One
     {
+      id: 'Hero 01 Complete',
+      name: 'Hero 01 Complete',
+      color: '#2BACE2 ',
+      visible: true,
+      image: 'images/img_test_memory_01.png',
+    },
+    {
       id: 'Hero 01 A',
       name: 'Hero 01 A',
       color: '#2BACE2 ',
@@ -206,6 +213,13 @@ export default {
       name: 'Hero 04 Empty',
       color: '#EA797E ',
       visible: false,
+      image: 'images/mem_hero_04a.png',
+    },
+    {
+      id: 'Hero 04 Complete',
+      name: 'Hero 04 Complete',
+      color: '#EA797E ',
+      visible: true,
       image: 'images/mem_hero_04a.png',
     },
     {
@@ -678,6 +692,34 @@ export default {
     {
       source: 'Hero 04 B',
       target: 'Hero 04 C',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    // Complete Mem
+    {
+      source: 'Hero 04 Complete',
+      target: 'Hero 04 C',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Complete',
+      target: 'Hero 04 B',
+      value: 1,
+      color: '#EA797E ',
+      curve: 0,
+      visible: true,
+      rotation: -Math.PI * (10 / 6),
+    },
+    {
+      source: 'Hero 04 Complete',
+      target: 'Hero 04 A',
       value: 1,
       color: '#EA797E ',
       curve: 0,
