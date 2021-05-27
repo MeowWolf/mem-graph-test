@@ -1,5 +1,12 @@
 export default {
   nodes: [
+    {
+      id: 'Main',
+      name: 'Main',
+      color: '#2BACE2 ',
+      visible: false,
+      image: 'images/mem_hero_01a.png',
+    },
     // One
     {
       id: 'Hero 01 Complete',
@@ -290,7 +297,7 @@ export default {
       id: 'Hero 05 Empty',
       name: 'Hero 05 Empty',
       color: '#FAC915 ',
-      visible: true,
+      visible: false,
       image: 'images/mem_hero_05a.png',
     },
     {
@@ -338,6 +345,56 @@ export default {
   ],
 
   links: [
+    {
+      source: 'Main',
+      target: 'Hero 01 Empty',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Main',
+      target: 'Hero 02 Empty',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Main',
+      target: 'Hero 03 Empty',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Main',
+      target: 'Hero 04 Empty',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
+    {
+      source: 'Main',
+      target: 'Hero 05 Empty',
+      //length
+      visible: false,
+      value: 1,
+      color: '#2BACE2 ',
+      curve: 0.3,
+      rotation: -Math.PI * (2 / 6),
+    },
     {
       source: 'Hero 01 A',
       target: 'Hero 01 B',
@@ -458,6 +515,7 @@ export default {
       curve: 0.3,
       rotation: -Math.PI * (2 / 6),
     },
+
     {
       source: 'Hero 01 B',
       target: 'Hero 01 C',
@@ -700,8 +758,8 @@ export default {
     },
     // Complete Mem
     {
-      source: 'Hero 04 Complete',
-      target: 'Hero 04 C',
+      target: 'Hero 04 Complete',
+      source: 'Hero 04 C',
       value: 1,
       color: '#EA797E ',
       curve: 0,
@@ -709,8 +767,8 @@ export default {
       rotation: -Math.PI * (10 / 6),
     },
     {
-      source: 'Hero 04 Complete',
-      target: 'Hero 04 B',
+      target: 'Hero 04 Complete',
+      source: 'Hero 04 B',
       value: 1,
       color: '#EA797E ',
       curve: 0,
@@ -718,8 +776,8 @@ export default {
       rotation: -Math.PI * (10 / 6),
     },
     {
-      source: 'Hero 04 Complete',
-      target: 'Hero 04 A',
+      target: 'Hero 04 Complete',
+      source: 'Hero 04 A',
       value: 1,
       color: '#EA797E ',
       curve: 0,

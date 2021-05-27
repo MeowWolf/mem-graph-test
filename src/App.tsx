@@ -30,6 +30,42 @@ const App: FunctionComponent = () => {
     }
   }
 
+  function createSpriteNode(node: any): THREE.Object3D {
+    const imgTexture = new THREE.TextureLoader().load(node.image)
+    const material = new THREE.SpriteMaterial({ map: imgTexture })
+
+    const sprite = new THREE.Sprite(material)
+
+    if (node.image.includes('memory')) {
+      sprite.scale.set(100, 100, 1)
+    } else {
+      sprite.scale.set(20, 20, 1)
+    }
+
+    if (node.id.includes('Complete')) {
+      sprite.scale.set(30, 30, 1)
+    }
+
+    if (node.id.includes('Main')) {
+      sprite.scale.set(150, 150, 1)
+    }
+
+    return sprite
+  }
+
+  function zoomCameraToNode(node: any): void {
+    // Aim at node from outside it
+    const distance = 70
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z)
+
+    // @ts-expect-error - dont wrry bout it bb
+    Graph.cameraPosition(
+      { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+      null, // lookAt ({ x, y, z })
+      1500, // ms transition duration
+    )
+  }
+
   useEffect(() => {
     if (graphParent.current !== null) {
       // build the graph
@@ -40,38 +76,23 @@ const App: FunctionComponent = () => {
         .linkWidth(1)
         .linkResolution(10)
         .linkCurvature('curve')
-        .linkOpacity(0.7)
+        .linkOpacity(1)
         .linkCurveRotation('rotation')
         .nodeVisibility('visible')
         .linkVisibility('visible')
+        .linkDirectionalParticles(5)
+        .linkOpacity(0.7)
+        .linkDirectionalParticleWidth((link: any) => (link.target.includes('Complete') ? 3 : 0))
+        .linkDirectionalParticleSpeed(5 * 0.001)
         .nodeColor('color')
-        .cooldownTicks(100)
+        .cooldownTicks(200)
         .d3VelocityDecay(0.8)
-        .onNodeClick((node: any) => {
-          // Aim at node from outside it
-          const distance = 70
-          const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z)
+        .onNodeClick((node) => zoomCameraToNode(node))
+        .nodeThreeObject((node) => createSpriteNode(node))
 
-          // @ts-expect-error - dont wrry bout it bb
-          Graph.cameraPosition(
-            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-            null, // lookAt ({ x, y, z })
-            1500, // ms transition duration
-          )
-        })
-        .nodeThreeObject((node: any) => {
-          const imgTexture = new THREE.TextureLoader().load(node.image)
-          const material = new THREE.SpriteMaterial({ map: imgTexture })
-          const sprite = new THREE.Sprite(material)
-
-          if (node.image.includes('memory')) {
-            sprite.scale.set(100, 100, 1)
-          } else {
-            sprite.scale.set(20, 20, 1)
-          }
-
-          return sprite
-        })
+      // Set link force
+      // Maybe we need a ref to linkForce later
+      const linkforce = Graph.d3Force('link')?.distance((link: any) => (link.target.id.includes('Complete') ? 90 : 30))
 
       // post
       // @ts-expect-error // shhh
@@ -92,6 +113,7 @@ const App: FunctionComponent = () => {
 
       Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
+      // Control Settings
       graphControls = Graph.controls()
       // @ts-expect-error // shhh
       graphControls.maxDistance = 1000
@@ -102,7 +124,7 @@ const App: FunctionComponent = () => {
       // @ts-expect-error // shhh
       graphControls.zoomSpeed = 0.5
     }
-  }, [graphParent.current])
+  }, [graphParent.current, breakpoint])
 
   return (
     <div className="container">
