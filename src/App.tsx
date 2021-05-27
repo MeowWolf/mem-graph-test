@@ -3,6 +3,7 @@ import { createBreakpoint, useWindowSize } from 'react-use'
 import * as THREE from 'three'
 import * as d3 from 'd3'
 import ForceGraph from '3d-force-graph'
+import { EffectComposer, EffectPass, RenderPass } from 'postprocessing'
 
 import testData from './testData'
 
@@ -14,18 +15,16 @@ const App: FunctionComponent = () => {
   const graphParent = useRef<HTMLDivElement>(null)
   const breakpoint = useBreakpoint()
 
-  // @ts-expect-error // shhh
   let Graph
   let graphControls
+  let nodeRotateInterval
 
   let first = true
 
   const { width, height } = useWindowSize()
 
   function handleReset() {
-    // @ts-expect-error // shhh
     if (Graph) {
-      // @ts-expect-error // shhh
       Graph.zoomToFit(200, 0)
     }
   }
@@ -58,12 +57,23 @@ const App: FunctionComponent = () => {
     const distance = 70
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z)
 
-    // @ts-expect-error - dont wrry bout it bb
     Graph.cameraPosition(
       { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-      null, // lookAt ({ x, y, z })
+      node, // lookAt ({ x, y, z })
       1500, // ms transition duration
     )
+
+    // let angle = 0
+    // setTimeout(() => {
+    //   nodeRotateInterval = setInterval(() => {
+    //     // @ts-expect-error - dont wrry bout it bb
+    //     Graph.cameraPosition({
+    //       x: distance * Math.sin(angle),
+    //       z: distance * Math.cos(angle),
+    //     })
+    //     angle += Math.PI / 300
+    //   }, 10)
+    // }, 2000)
   }
 
   useEffect(() => {
@@ -100,11 +110,11 @@ const App: FunctionComponent = () => {
       bloomPass.strength = 0.36
       bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
+
       Graph.postProcessingComposer().addPass(bloomPass)
 
       Graph.onEngineStop(() => {
         if (first) {
-          // @ts-expect-error // shhh
           Graph.zoomToFit(300, 0)
           first = false
           return
@@ -115,13 +125,13 @@ const App: FunctionComponent = () => {
 
       // Control Settings
       graphControls = Graph.controls()
-      // @ts-expect-error // shhh
+
       graphControls.maxDistance = 1000
-      // @ts-expect-error // shhh
+
       graphControls.noPan = true
-      // @ts-expect-error // shhh
+
       graphControls.rotateSpeed = 0.5
-      // @ts-expect-error // shhh
+
       graphControls.zoomSpeed = 0.5
     }
   }, [graphParent.current, breakpoint])
