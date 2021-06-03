@@ -345,56 +345,56 @@ export default {
   ],
 
   links: [
-    {
-      source: 'Main',
-      target: 'Hero 01 Empty',
-      //length
-      visible: false,
-      value: 1,
-      color: '#2BACE2 ',
-      curve: 0.3,
-      rotation: -Math.PI * (2 / 6),
-    },
-    {
-      source: 'Main',
-      target: 'Hero 02 Empty',
-      //length
-      visible: false,
-      value: 1,
-      color: '#2BACE2 ',
-      curve: 0.3,
-      rotation: -Math.PI * (2 / 6),
-    },
-    {
-      source: 'Main',
-      target: 'Hero 03 Empty',
-      //length
-      visible: false,
-      value: 1,
-      color: '#2BACE2 ',
-      curve: 0.3,
-      rotation: -Math.PI * (2 / 6),
-    },
-    {
-      source: 'Main',
-      target: 'Hero 04 Empty',
-      //length
-      visible: false,
-      value: 1,
-      color: '#2BACE2 ',
-      curve: 0.3,
-      rotation: -Math.PI * (2 / 6),
-    },
-    {
-      source: 'Main',
-      target: 'Hero 05 Empty',
-      //length
-      visible: false,
-      value: 1,
-      color: '#2BACE2 ',
-      curve: 0.3,
-      rotation: -Math.PI * (2 / 6),
-    },
+    // {
+    //   source: 'Main',
+    //   target: 'Hero 01 Empty',
+    //   //length
+    //   visible: false,
+    //   value: 1,
+    //   color: '#2BACE2 ',
+    //   curve: 0.3,
+    //   rotation: -Math.PI * (2 / 6),
+    // },
+    // {
+    //   source: 'Main',
+    //   target: 'Hero 02 Empty',
+    //   //length
+    //   visible: false,
+    //   value: 1,
+    //   color: '#2BACE2 ',
+    //   curve: 0.3,
+    //   rotation: -Math.PI * (2 / 6),
+    // },
+    // {
+    //   source: 'Main',
+    //   target: 'Hero 03 Empty',
+    //   //length
+    //   visible: false,
+    //   value: 1,
+    //   color: '#2BACE2 ',
+    //   curve: 0.3,
+    //   rotation: -Math.PI * (2 / 6),
+    // },
+    // {
+    //   source: 'Main',
+    //   target: 'Hero 04 Empty',
+    //   //length
+    //   visible: false,
+    //   value: 1,
+    //   color: '#2BACE2 ',
+    //   curve: 0.3,
+    //   rotation: -Math.PI * (2 / 6),
+    // },
+    // {
+    //   source: 'Main',
+    //   target: 'Hero 05 Empty',
+    //   //length
+    //   visible: false,
+    //   value: 1,
+    //   color: '#2BACE2 ',
+    //   curve: 0.3,
+    //   rotation: -Math.PI * (2 / 6),
+    // },
     {
       source: 'Hero 01 A',
       target: 'Hero 01 B',

@@ -1,26 +1,43 @@
+/* eslint-disable react/prop-types */
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
 import { createBreakpoint, useWindowSize } from 'react-use'
 import * as THREE from 'three'
 import * as d3 from 'd3'
 import ForceGraph from '3d-force-graph'
-import { EffectComposer, EffectPass, RenderPass } from 'postprocessing'
+import { EffectComposer, EffectPass, RenderPass, ChromaticAberrationEffect } from 'postprocessing'
 
 import testData from './testData'
 
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
+import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass'
+import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass'
 
 const useBreakpoint = createBreakpoint()
 
-const App: FunctionComponent = () => {
+interface Props {
+  nodeFocusCameraRotationSpeed?: number
+  nodeFocusBeginRotationTime?: number
+  nodeFocusCameraPositionUpdateTime?: number
+  detailViewOpen?: false
+}
+
+const App: FunctionComponent<Props> = ({
+  nodeFocusCameraRotationSpeed = 2.0,
+  nodeFocusBeginRotationTime = 2000,
+  nodeFocusCameraPositionUpdateTime = 1500,
+  detailViewOpen = false,
+}) => {
   const graphParent = useRef<HTMLDivElement>(null)
   const breakpoint = useBreakpoint()
 
   let Graph
   let graphControls
-  let nodeRotateInterval
+  let nodeFocusTimeout
+  let focused = false
 
   let first = true
 
+  //TODO use size of parent ref & not window
   const { width, height } = useWindowSize()
 
   function handleReset() {
@@ -53,33 +70,40 @@ const App: FunctionComponent = () => {
   }
 
   function zoomCameraToNode(node: any): void {
+    if (nodeFocusTimeout) window.clearTimeout(nodeFocusTimeout)
+
     // Aim at node from outside it
-    const distance = 70
+    const distance = 60
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z)
 
     Graph.cameraPosition(
       { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
       node, // lookAt ({ x, y, z })
-      1500, // ms transition duration
+      nodeFocusCameraPositionUpdateTime, // ms transition duration
     )
 
-    // let angle = 0
-    // setTimeout(() => {
-    //   nodeRotateInterval = setInterval(() => {
-    //     // @ts-expect-error - dont wrry bout it bb
-    //     Graph.cameraPosition({
-    //       x: distance * Math.sin(angle),
-    //       z: distance * Math.cos(angle),
-    //     })
-    //     angle += Math.PI / 300
-    //   }, 10)
-    // }, 2000)
+    // Enable autorotate aftet x ms
+    nodeFocusTimeout = setTimeout(() => {
+      focused = true
+      if (graphControls) {
+        graphControls.autoRotate = true
+        // TODO Renable after detail panel is implemented
+        //graphControls.enabled = false
+      }
+      // TODO on camera zoom or click set autorotate to false
+    }, nodeFocusBeginRotationTime + nodeFocusCameraPositionUpdateTime)
+  }
+
+  function onCameraMove(e: any): void {
+    console.log(e)
+    // if focused return to original position
+    // TODO this will need to be refacored when detail pannel is implemented
   }
 
   useEffect(() => {
     if (graphParent.current !== null) {
       // build the graph
-      Graph = ForceGraph()(graphParent.current)
+      Graph = ForceGraph({ controlType: 'orbit' })(graphParent.current)
         .graphData(testData)
         .width(breakpoint.includes('laptop') ? width * 0.8 : width)
         .linkColor('color')
@@ -95,8 +119,13 @@ const App: FunctionComponent = () => {
         .linkDirectionalParticleWidth((link: any) => (link.target.includes('Complete') ? 3 : 0))
         .linkDirectionalParticleSpeed(5 * 0.001)
         .nodeColor('color')
-        .cooldownTicks(200)
+        // .cooldownTicks(100)
+        .cooldownTime(Infinity)
         .d3VelocityDecay(0.8)
+        // //@ts-expect-error - who knows
+        // .d3Force('center', null)
+        // //@ts-expect-error - who knows
+        // .d3Force('charge', null)
         .onNodeClick((node) => zoomCameraToNode(node))
         .nodeThreeObject((node) => createSpriteNode(node))
 
@@ -110,16 +139,29 @@ const App: FunctionComponent = () => {
       bloomPass.strength = 0.36
       bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
+      const camera = Graph.camera()
 
+      // Config camera
+      camera.autoRotateSpeed = nodeFocusCameraRotationSpeed
+
+      const scene = Graph.scene()
       Graph.postProcessingComposer().addPass(bloomPass)
 
-      Graph.onEngineStop(() => {
-        if (first) {
-          Graph.zoomToFit(300, 0)
-          first = false
-          return
-        }
+      const bokehPass = new BokehPass(scene, camera, {
+        focus: 70,
+        aperture: 0.00001,
+        maxblur: 0.006,
       })
+
+      bokehPass.needsSwap = true
+
+      Graph.postProcessingComposer().addPass(bokehPass)
+
+      // const chromaPass = new EffectPass(camera, new ChromaticAberrationEffect())
+      // Graph.postProcessingComposer().addPass(chromaPass)
+
+      // Graph.zoomToFit(300, 0)
+      first = false
 
       Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
@@ -128,11 +170,13 @@ const App: FunctionComponent = () => {
 
       graphControls.maxDistance = 1000
 
-      graphControls.noPan = true
+      graphControls.enablePan = false
 
       graphControls.rotateSpeed = 0.5
 
       graphControls.zoomSpeed = 0.5
+
+      graphControls.addEventListener('change', onCameraMove)
     }
   }, [graphParent.current, breakpoint])
 
