@@ -34,13 +34,25 @@ const App: FunctionComponent<Props> = ({
   let graphControls
   let nodeFocusTimeout
   let focused = false
+  let zooming = false
 
   let first = true
+
+  const loadingManager = new THREE.LoadingManager()
+
+  loadingManager.onLoad = () => {
+    console.log('loaded with no graph yet')
+    if (Graph) {
+      console.log('loaded with Graph')
+      Graph.zoomToFit(200, 0)
+    }
+  }
 
   //TODO use size of parent ref & not window
   const { width, height } = useWindowSize()
 
   function handleReset() {
+    graphControls.autoRotate = false
     if (Graph) {
       Graph.zoomToFit(200, 0)
     }
@@ -70,6 +82,8 @@ const App: FunctionComponent<Props> = ({
   }
 
   function zoomCameraToNode(node: any): void {
+    focused = true
+    zooming = true
     if (nodeFocusTimeout) window.clearTimeout(nodeFocusTimeout)
 
     // Aim at node from outside it
@@ -84,20 +98,26 @@ const App: FunctionComponent<Props> = ({
 
     // Enable autorotate aftet x ms
     nodeFocusTimeout = setTimeout(() => {
-      focused = true
       if (graphControls) {
         graphControls.autoRotate = true
         // TODO Renable after detail panel is implemented
         //graphControls.enabled = false
       }
+      zooming = false
       // TODO on camera zoom or click set autorotate to false
     }, nodeFocusBeginRotationTime + nodeFocusCameraPositionUpdateTime)
   }
 
   function onCameraMove(e: any): void {
-    console.log(e)
+    // console.log(e)
     // if focused return to original position
     // TODO this will need to be refacored when detail pannel is implemented
+    // if (focused) {
+    //   graphControls.autoRotate = false
+    //   if (Graph) {
+    //     Graph.zoomToFit(200, 0)
+    //   }
+    // }
   }
 
   useEffect(() => {
