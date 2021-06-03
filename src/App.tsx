@@ -37,8 +37,7 @@ const App: FunctionComponent<Props> = ({
   let focused = false
   let zooming = false
 
-  const loadingManager = new THREE.LoadingManager()
-
+  // Adjust zoom level after scene is loaded
   THREE.DefaultLoadingManager.onLoad = () => {
     if (Graph) {
       Graph.zoomToFit(300, 200)
@@ -47,6 +46,14 @@ const App: FunctionComponent<Props> = ({
 
   //TODO use size of parent ref & not window
   const { width, height } = useWindowSize()
+
+  testData.nodes.map((node: any) => {
+    node.vx = Math.random()
+    node.vy = Math.random()
+    node.vz = Math.random()
+  })
+
+  console.log(testData)
 
   function handleReset() {
     if (Graph) {
