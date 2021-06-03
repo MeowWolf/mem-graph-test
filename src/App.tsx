@@ -37,15 +37,11 @@ const App: FunctionComponent<Props> = ({
   let focused = false
   let zooming = false
 
-  let first = true
-
   const loadingManager = new THREE.LoadingManager()
 
-  loadingManager.onLoad = () => {
-    console.log('loaded with no graph yet')
+  THREE.DefaultLoadingManager.onLoad = () => {
     if (Graph) {
-      console.log('loaded with Graph')
-      Graph.zoomToFit(200, 0)
+      Graph.zoomToFit(300, 200)
     }
   }
 
@@ -53,8 +49,8 @@ const App: FunctionComponent<Props> = ({
   const { width, height } = useWindowSize()
 
   function handleReset() {
-    graphControls.autoRotate = false
     if (Graph) {
+      graphControls.autoRotate = false
       Graph.zoomToFit(200, 0)
     }
   }
@@ -157,7 +153,7 @@ const App: FunctionComponent<Props> = ({
       // post
       // @ts-expect-error // shhh
       const bloomPass = new UnrealBloomPass()
-      bloomPass.strength = 0.36
+      bloomPass.strength = 0.36 // TODO consider adjusting bloom strengh for mobile
       bloomPass.radius = 1.5
       bloomPass.threshold = 0.1
       const camera = Graph.camera()
@@ -180,9 +176,6 @@ const App: FunctionComponent<Props> = ({
 
       // const chromaPass = new EffectPass(camera, new ChromaticAberrationEffect())
       // Graph.postProcessingComposer().addPass(chromaPass)
-
-      // Graph.zoomToFit(300, 0)
-      first = false
 
       Graph.renderer().setPixelRatio(window.devicePixelRatio)
 
