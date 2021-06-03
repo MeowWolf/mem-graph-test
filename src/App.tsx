@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { FunctionComponent, useContext, useEffect, useRef } from 'react'
+import FPSStats from 'react-fps-stats'
 import { createBreakpoint, useWindowSize } from 'react-use'
 import * as THREE from 'three'
 import * as d3 from 'd3'
@@ -202,6 +203,7 @@ const App: FunctionComponent<Props> = ({
 
   return (
     <div className="container">
+      <FPSStats />
       {breakpoint.includes('laptop') && <div className="rail"></div>}
       <div id="3d-graph" className="graph" ref={graphParent}></div>
       {breakpoint.includes('laptop') && (
